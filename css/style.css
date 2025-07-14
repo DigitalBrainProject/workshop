@@ -175,6 +175,64 @@ footer h3 {
     border-top: 1px solid #555;
 }
 
+/* Access & Location */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.location-info h3 {
+    color: #0066cc;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    border: none;
+    padding: 0;
+}
+
+.location-info h3:first-child {
+    margin-top: 0;
+}
+
+.map-container {
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #0066cc;
+}
+
+.map-container h3 {
+    color: #0066cc;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    border: none;
+    padding: 0;
+}
+
+.transportation-note {
+    background-color: #e3f2fd;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    border-left: 3px solid #2196f3;
+}
+
+.transportation-note p {
+    margin: 0;
+    color: #1565c0;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
 /* 講演者カード */
 .speakers-grid {
     display: grid;
