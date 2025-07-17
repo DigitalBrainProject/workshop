@@ -564,3 +564,28 @@ footer h2 {
 #back-to-top:hover {
     background: #0056b3;
 }
+.cta-button-container {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.apply-btn {
+    display: inline-block;
+    background: #FFD700; /* 黄色 */
+    color: #007bff; /* 青文字 */
+    padding: 20px 40px;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50px; /* 完全な円形に近い */
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    border: 3px solid #007bff; /* 青い枠線も追加 */
+}
+
+.apply-btn:hover {
+    background: #FFC107; /* ホバー時は少し濃い黄色 */
+    color: #0056b3; /* ホバー時は少し濃い青 */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+}
