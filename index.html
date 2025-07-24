@@ -731,10 +731,8 @@ a:hover {
 
     <main>
         <section id="overview" class="hero">
-            <div class="hero-images-container">
-                <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" class="hero-image hero-image-1">
-                <img src="images/pattern_2.png" alt="Workshop Description" class="hero-image hero-image-2">
-            </div>
+            <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
+            <img src="images/pattern_2.png" alt="Workshop Description" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
         </section>
 
         <section id="hero-description" class="container">
@@ -1181,53 +1179,14 @@ a:hover {
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // スクロール効果とback-to-topボタン
-        let ticking = false;
-
-        function updateScrollEffects() {
-            const scrolled = window.pageYOffset;
-            const heroContainer = document.querySelector('.hero-images-container');
-            const heroImage1 = document.querySelector('.hero-image-1');
-            const heroImage2 = document.querySelector('.hero-image-2');
-            
-            // Back to top ボタンの表示/非表示
-            const backToTop = document.getElementById("back-to-top");
-            if (scrolled > 200) {
-                backToTop.style.display = "block";
+        // Back to top ボタンの表示/非表示のみ
+        window.onscroll = function() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.getElementById("back-to-top").style.display = "block";
             } else {
-                backToTop.style.display = "none";
+                document.getElementById("back-to-top").style.display = "none";
             }
-
-            // ヒーロー画像のスクロール効果
-            if (heroContainer && heroImage1 && heroImage2) {
-                const containerHeight = window.innerHeight;
-                const scrollThreshold = containerHeight * 0.4; // 40%スクロールで切り替え開始
-                
-                if (scrolled > scrollThreshold) {
-                    heroImage1.classList.add('scrolled');
-                    heroImage2.classList.add('scrolled');
-                } else {
-                    heroImage1.classList.remove('scrolled');
-                    heroImage2.classList.remove('scrolled');
-                }
-            }
-            
-            ticking = false;
-        }
-
-        function requestTick() {
-            if (!ticking) {
-                requestAnimationFrame(updateScrollEffects);
-                ticking = true;
-            }
-        }
-
-        window.addEventListener('scroll', requestTick);
-
-        // 初期化
-        document.addEventListener('DOMContentLoaded', function() {
-            updateScrollEffects();
-        });
+        };
     </script>
 </body>
 </html>
