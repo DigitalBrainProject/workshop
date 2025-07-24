@@ -86,52 +86,12 @@ nav a:hover::after {
     width: 100%;
 }
 
-/* ヒーローセクション - スクロール効果付き */
+/* ヒーローセクション */
 .hero {
     background: transparent;
     color: #1a1a1a;
     padding: 0;
     text-align: center;
-    position: relative;
-}
-
-.hero-images-container {
-    position: relative;
-    width: 100%;
-}
-
-.hero-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0;
-    padding: 0;
-    transition: all 0.6s ease-out;
-}
-
-.hero-image-1 {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-image-2 {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    opacity: 0;
-    transform: translateY(50px);
-}
-
-/* スクロール時のアニメーション */
-.hero-image-1.fade-out {
-    opacity: 0;
-    transform: translateY(-50px);
-}
-
-.hero-image-2.fade-in {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ヒーロー説明セクション - 白背景に戻す */
@@ -664,19 +624,11 @@ a:hover {
 
     <main>
         <section id="overview" class="hero">
-            <div class="hero-images-container">
-                <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" class="hero-image hero-image-1">
-                <img src="images/pattern_2.png" alt="Workshop Description" class="hero-image hero-image-2">
-            </div>
+            <img src="images/pattern_2.png" alt="2nd Digital Brain Workshop" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
+            <img src="images/pattern_4.png" alt="Workshop Description" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
         </section>
 
         <section id="hero-description" class="container">
-            <div class="description-content">
-                <p class="elegant-description">
-                    Join a hand-picked team of young Japanese and Korean researchers, debate face-to-face in English, and sprint toward a <strong>10-minute joint proposal that could spark the next cross-border collaboration</strong>. Surrounded by hot-spring steam and star-filled skies, pack your laptop and meet us in Kyushu this October.
-                </p>
-            </div>
-            
             <div class="event-info-cards">
                 <div class="event-info-card">
                     <h3>📅 Date</h3>
