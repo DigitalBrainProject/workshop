@@ -301,10 +301,63 @@ h2::after {
     background: linear-gradient(90deg, #ff4757, #3742fa);
 }
 
-h3 {
+/* Team & Mission セクションの行間調整 */
+.mission-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mission-overview {
+    margin-bottom: 2.5rem;
+}
+
+.mission-overview p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #5f6368;
+}
+
+.mission-goals,
+.mission-format,
+.mission-activities {
+    margin-bottom: 2.5rem;
+}
+
+.mission-goals h3,
+.mission-format h3,
+.mission-activities h3 {
     color: #1a1a1a;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     margin-bottom: 1rem;
+    margin-top: 0;
+}
+
+.mission-goals p,
+.mission-format p {
+    line-height: 1.8;
+    margin-bottom: 0;
+    color: #1a1a1a;
+}
+
+.mission-activities ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.mission-activities li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e8eaed;
+    line-height: 1.7;
+}
+
+.mission-activities li:last-child {
+    border-bottom: none;
+}
+
+.mission-activities li strong {
+    color: var(--primary-red);
     font-weight: 600;
 }
 
@@ -679,8 +732,8 @@ a:hover {
     <main>
         <section id="overview" class="hero">
             <div class="hero-images-container">
-                <img src="images/pattern_2.png" alt="2nd Digital Brain Workshop" class="hero-image hero-image-1">
-                <img src="images/pattern_4.png" alt="Workshop Description" class="hero-image hero-image-2">
+                <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" class="hero-image hero-image-1">
+                <img src="images/pattern_2.png" alt="Workshop Description" class="hero-image hero-image-2">
             </div>
         </section>
 
