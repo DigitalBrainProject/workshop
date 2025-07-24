@@ -4,7 +4,649 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>2nd Digital Brain Workshop</title>
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+/* Digital Brain Workshop CSS - 赤ヒーロー対応版 */
+
+/* リセットとベース設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-red: #ff4757;
+    --primary-blue: #3742fa;
+    --primary-orange: #ffa502;
+    --dark-bg: #2c2c2c;
+    --light-gray: #f8f9fa;
+    --text-dark: #1a1a1a;
+    --text-gray: #5f6368;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #fafbfc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ヘッダー */
+header {
+    background-color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 1rem 0;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    color: var(--primary-red);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    text-decoration: none;
+    color: #5f6368;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+nav a:hover {
+    color: var(--primary-red);
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4757, #3742fa);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ヒーローセクション - スクロール効果付き */
+.hero {
+    background: transparent;
+    color: #1a1a1a;
+    padding: 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-images-container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
+    padding: 0;
+    transition: all 0.6s ease-out;
+}
+
+.hero-image-1 {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-image-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+/* スクロール時のアニメーション */
+.hero-image-1.fade-out {
+    opacity: 0;
+    transform: translateY(-50px);
+}
+
+.hero-image-2.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ヒーロー説明セクション - 赤背景 */
+#hero-description {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    color: white;
+}
+
+.description-content {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.elegant-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.7;
+    color: white;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    font-weight: 400;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.elegant-description strong {
+    color: #ffd700;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+.event-info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.event-info-card {
+    background: white;
+    border-radius: 0;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.event-info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #ff4757 0%, #3742fa 50%, #ffa502 100%);
+}
+
+.event-info-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 35px rgba(255, 71, 87, 0.2);
+}
+
+.event-info-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-info-card p {
+    color: #1a1a1a;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.event-info-card strong {
+    color: var(--primary-red);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.cta-button-container {
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.apply-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
+    color: white;
+    padding: 1.2rem 3rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 0;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.apply-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
+}
+
+.apply-btn:hover::before {
+    left: 100%;
+}
+
+.apply-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.6);
+    background: linear-gradient(135deg, #ff3838 0%, #ff2828 100%);
+    color: white;
+    text-decoration: none;
+}
+
+/* セクション */
+section {
+    padding: 4rem 0;
+}
+
+section:not(.hero) {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #1a1a1a;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #ff4757, #3742fa);
+}
+
+h3 {
+    color: #1a1a1a;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+/* Essential Information */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 0;
+    border: 1px solid #e8eaed;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.info-card:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 4px 20px rgba(255, 71, 87, 0.15);
+}
+
+.info-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.fee {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-red);
+}
+
+.meal-list {
+    list-style: none;
+}
+
+.meal-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e8eaed;
+    color: #1a1a1a;
+}
+
+.meal-list li:last-child {
+    border-bottom: none;
+}
+
+/* 講演者カード */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.speaker-card {
+    background-color: white;
+    border-radius: 0;
+    padding: 1.8rem;
+    border: 1px solid #e8eaed;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.speaker-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.12);
+}
+
+.speaker-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.speaker-card .affiliation {
+    color: #5f6368;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* スケジュール */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.day-schedule {
+    background-color: white;
+    border-radius: 0;
+    padding: 2rem;
+    border: 1px solid #e8eaed;
+}
+
+.day-schedule h3 {
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e8eaed;
+    padding-bottom: 0.5rem;
+}
+
+.schedule-item {
+    display: flex;
+    margin-bottom: 0.8rem;
+    padding: 1rem;
+    background-color: #fafbfc;
+    border-radius: 0;
+    border-left: 2px solid #e8eaed;
+    transition: all 0.3s ease;
+}
+
+.schedule-item:hover {
+    border-left-color: var(--primary-red);
+    background-color: #fff5f5;
+}
+
+.schedule-item.team-discussion {
+    border-left-color: var(--primary-red);
+    background-color: #fff5f5;
+}
+
+.schedule-item.poster {
+    border-left-color: var(--primary-blue);
+    background-color: #f5f7ff;
+}
+
+.schedule-item.presentation {
+    border-left-color: var(--primary-orange);
+    background-color: #fffaf5;
+}
+
+.time {
+    font-weight: 700;
+    color: var(--primary-red);
+    min-width: 100px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.activity {
+    color: #1a1a1a;
+    flex: 1;
+    margin-left: 1rem;
+}
+
+/* フッター・オーガナイザー */
+footer {
+    background-color: white;
+    color: #1a1a1a;
+    padding: 4rem 0 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.organizers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.organizer-card {
+    background-color: white;
+    border-radius: 0;
+    padding: 1.8rem;
+    border: 1px solid #e8eaed;
+    transition: all 0.3s ease;
+}
+
+.organizer-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.12);
+}
+
+.organizer-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.organizer-card .affiliation {
+    color: #5f6368;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.sponsors {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e8eaed;
+}
+
+.sponsors h3 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.sponsors p {
+    color: #5f6368;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.footer-links {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e8eaed;
+}
+
+.footer-links p {
+    color: #5f6368;
+    margin: 0;
+}
+
+/* Access & Location */
+.location-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.location-info h3 {
+    color: #1a1a1a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.location-info h3:first-child {
+    margin-top: 0;
+}
+
+.map-container {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 0;
+    border: 1px solid #e8eaed;
+}
+
+.map-container h3 {
+    color: #1a1a1a;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.transportation-note {
+    background: linear-gradient(135deg, #fff5f5 0%, #f5f7ff 100%);
+    padding: 1rem;
+    border-radius: 0;
+    margin-top: 1rem;
+    border-left: 3px solid var(--primary-red);
+}
+
+.transportation-note p {
+    margin: 0;
+    color: var(--primary-red);
+    font-weight: 600;
+}
+
+/* リンク */
+a {
+    color: var(--primary-red);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-blue);
+}
+
+/* Back to top */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
+    color: white;
+    border: none;
+    border-radius: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+#back-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.5);
+}
+
+/* レスポンシブ */
+@media (max-width: 768px) {
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .schedule-item {
+        flex-direction: column;
+    }
+    
+    .time {
+        min-width: auto;
+        margin-bottom: 0.3rem;
+    }
+    
+    .activity {
+        margin-left: 0;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+    </style>
 </head>
 <body>
     <header>
@@ -26,7 +668,10 @@
 
     <main>
         <section id="overview" class="hero">
-            <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
+            <div class="hero-images-container">
+                <img src="images/pattern_2.png" alt="2nd Digital Brain Workshop" class="hero-image hero-image-1">
+                <img src="images/pattern_4.png" alt="Workshop Description" class="hero-image hero-image-2">
+            </div>
         </section>
 
         <section id="hero-description" class="container">
@@ -244,241 +889,4 @@
                     </div>
                     <div class="schedule-item team-discussion">
                         <span class="time">16:30-17:30</span>
-                        <span class="activity"><strong>Team Discussion 1:</strong> Sharing motivation and Self-Introduction in Team</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">17:30-18:30</span>
-                        <span class="activity">Dinner</span>
-                    </div>
-                    <div class="schedule-item poster">
-                        <span class="time">19:00-21:00</span>
-                        <span class="activity"><strong>Poster Session</strong> with Drinking Discussion</span>
-                    </div>
-                </div>
-
-                <div class="day-schedule">
-                    <h3>Day 2 - October 18 (Saturday)</h3>
-                    <div class="schedule-item">
-                        <span class="time">7:30-8:30</span>
-                        <span class="activity">Breakfast</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">9:00-9:35</span>
-                        <span class="activity"><strong>Takkaki Kaneko</strong>, Assistant Professor, National Institute for Physiological Science</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">9:35-10:10</span>
-                        <span class="activity"><strong>Mathematician 2</strong></span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">10:10-10:20</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">10:20-10:55</span>
-                        <span class="activity"><strong>Akiya Watakabe</strong>, Researcher, RIKEN CBS</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">10:55-11:40</span>
-                        <span class="activity"><strong>Dae Wook Kim</strong>, Assistant Professor, KAIST</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">11:40-13:00</span>
-                        <span class="activity">Lunch (BBQ)</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">13:00-13:35</span>
-                        <span class="activity"><strong>Woochul Choi</strong>, Senior Researcher, Korea Brain Research Institute</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">13:35-13:45</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item team-discussion">
-                        <span class="time">13:45-15:20</span>
-                        <span class="activity"><strong>Team Discussion 2:</strong> Main Discussion 1</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">15:20-15:30</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">15:30-15:50</span>
-                        <span class="activity">Introduction of Korean Society for Computational Neuroscience</span>
-                    </div>
-                    <div class="schedule-item team-discussion">
-                        <span class="time">15:50-17:30</span>
-                        <span class="activity"><strong>Team Discussion 3:</strong> Main Discussion 2</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">17:30-18:30</span>
-                        <span class="activity">Dinner (Dago-jiru set)</span>
-                    </div>
-                    <div class="schedule-item poster">
-                        <span class="time">19:00-21:00</span>
-                        <span class="activity"><strong>Poster Session</strong> with Drinking Discussion</span>
-                    </div>
-                </div>
-
-                <div class="day-schedule">
-                    <h3>Day 3 - October 19 (Sunday)</h3>
-                    <div class="schedule-item">
-                        <span class="time">7:30-8:30</span>
-                        <span class="activity">Breakfast</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">8:30-9:00</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">9:00-9:20</span>
-                        <span class="activity"><strong>Tagami:</strong> Introduction of Mathematics for Industry Platform</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">9:20-9:30</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item team-discussion">
-                        <span class="time">9:30-12:00</span>
-                        <span class="activity"><strong>Team Discussion 4:</strong> Making Presentation Slide</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">12:00-13:00</span>
-                        <span class="activity">Lunch (Pork-shabu set)</span>
-                    </div>
-                    <div class="schedule-item presentation">
-                        <span class="time">13:00-14:30</span>
-                        <span class="activity"><strong>Team Presentations:</strong> 6 teams × 15 min (12 min presentation + 3 min Q&A)</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">14:30-14:40</span>
-                        <span class="activity">Closing Remarks</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">15:00-17:30</span>
-                        <span class="activity">Departure → Arrival at Hakata Station</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="access" class="container">
-            <h2>Access & Location</h2>
-            
-            <div class="location-grid">
-                <div class="location-info">
-                    <h3>📍 Venue</h3>
-                    <p><strong>Kuju Joint Training Center</strong><br>
-                    600-1 Yutsubo, Kokonoe-machi, Kusu-gun, Oita<br>
-                    〒879-4912 大分県玖珠郡九重町湯坪字八丁原600-1</p>
-                    
-                    <h3>🚌 Transportation</h3>
-                    <p><strong>Shuttle Bus Service</strong><br>
-                    From: <strong>Hakata Station</strong> (博多駅)<br>
-                    Departure: <strong>11:30 on October 17</strong><br>
-                    Return: <strong>15:00 on October 19</strong><br>
-                    → Arrival at Hakata: <strong>17:30</strong></p>
-                    
-                    <h3>🏔️ About the Location</h3>
-                    <p>Surrounded by beautiful mountain ridges and natural hot springs, the Kuju area offers the perfect environment for focused discussions and networking. The venue provides a peaceful setting away from city distractions, ideal for collaborative research planning.</p>
-                    
-                    <h3>🛏️ Accommodation</h3>
-                    <p>On-site accommodation at the training center<br>
-                    <a href="http://kokonoe.student.kyushu-u.ac.jp" target="_blank">kokonoe.student.kyushu-u.ac.jp</a></p>
-                </div>
-                
-                <div class="map-container">
-                    <h3>📍 Location Map</h3>
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53473.22497550444!2d131.168758!3d33.107071!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35413691c955a351%3A0xf7f2cc18e60557a9!2z5Lmd6YeN5YWx5ZCM56CU5L-u5omA!5e0!3m2!1sja!2sus!4v1749691559988!5m2!1sja!2sus"
-                        width="100%" 
-                        height="350" 
-                        style="border:0; border-radius: 10px;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    
-                    <div class="transportation-note">
-                        <p><strong>💡 Note:</strong> Shuttle bus transportation is included in the participation fee. No need to arrange individual transportation!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <section id="organizers">
-                <h2>Organizers</h2>
-                
-                <div class="organizers-grid">
-                    <div class="organizer-card">
-                        <h3>Ken Nakae</h3>
-                        <p class="affiliation">University of Fukui</p>
-                        <a href="https://researchmap.jp/ken.nakae" target="_blank">Research Profile →</a>
-                    </div>
-                    
-                    <div class="organizer-card">
-                        <h3>Daisuke Tagami</h3>
-                        <p class="affiliation">Kyushu University</p>
-                        <a href="https://hyoka.ofc.kyushu-u.ac.jp/html/100023049_ja.html" target="_blank">Faculty Profile →</a>
-                    </div>
-                    
-                    <div class="organizer-card">
-                        <h3>Kenji Doya</h3>
-                        <p class="affiliation">OIST</p>
-                        <a href="https://groups.oist.jp/ncu/kenji-doya" target="_blank">Lab Website →</a>
-                    </div>
-                    
-                    <div class="organizer-card">
-                        <h3>Takuya Isomura</h3>
-                        <p class="affiliation">RIKEN CBS</p>
-                        <a href="https://cbs.riken.jp/jp/faculty/t.isomura/" target="_blank">Faculty Profile →</a>
-                    </div>
-                    
-                    <div class="organizer-card">
-                        <h3>Jung Minyoung</h3>
-                        <p class="affiliation">Korea Brain Research Institute</p>
-                        <a href="https://researchmap.jp/minyoung" target="_blank">Research Profile →</a>
-                    </div>
-                    
-                    <div class="organizer-card">
-                        <h3>Se-Bum Paik</h3>
-                        <p class="affiliation">KAIST</p>
-                        <a href="https://cogi.kaist.ac.kr/" target="_blank">Lab Website →</a>
-                    </div>
-                </div>
-                
-                <div class="sponsors">
-                    <h3>Supported by</h3>
-                    <p>Japanese Neural Network Society, Mathematics for Industry Platform<br>
-                    <a href="https://www.brainscience-union.jp/" target="_blank">Website</a></p>
-                </div>
-            </section>
-            
-            <div class="footer-links">
-                <p>&copy; 2025 Digital Brain Project. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-    <!-- ここに追加 -->
-    <button id="back-to-top" onclick="scrollToTop()">↑</button>
-
-<script>
-function scrollToTop() {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-}
-
-// スクロール時にボタンの表示/非表示を切り替え
-window.onscroll = function() {
-    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        document.getElementById("back-to-top").style.display = "block";
-    } else {
-        document.getElementById("back-to-top").style.display = "none";
-    }
-};
-</script>
-    
-</body>
-</html>
+                        <span class="activity"><strong>Team Discussion 1:</strong>
