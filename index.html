@@ -709,6 +709,34 @@ a:hover {
         padding: 0 15px;
     }
 }
+/* === フェード切り替え機能 === */
+.hero {
+    position: relative !important;
+    width: 100% !important;
+    margin-top: 80px !important;
+    height: auto !important;
+    overflow: hidden !important;
+}
+
+.hero-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    opacity: 0 !important;
+    transition: opacity 1.5s ease-in-out !important;
+}
+
+.hero-image.active {
+    opacity: 1 !important;
+}
+
+.hero-image:first-child {
+    position: relative !important;
+}
+
+/* 以下、コントロール関連のCSSも続けて追加... */
     </style>
 </head>
 <body>
