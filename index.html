@@ -916,7 +916,7 @@ a:hover {
     </div>
     
     <div class="autoplay-status" onclick="toggleAutoPlay()">
-        <span id="autoplay-text">自動再生 ON</span>
+        <span id="autoplay-text">AUTO PLAY ON</span>
     </div>
         </section>
 
@@ -1398,11 +1398,11 @@ function toggleAutoPlay() {
     if (isAutoPlaying) {
         clearInterval(autoPlayInterval);
         isAutoPlaying = false;
-        autoplayText.textContent = '自動再生 OFF';
+        autoplayText.textContent = 'AUTO OFF';
     } else {
         startAutoPlay();
         isAutoPlaying = true;
-        autoplayText.textContent = '自動再生 ON';
+        autoplayText.textContent = 'AUTO ON';
     }
 }
 
