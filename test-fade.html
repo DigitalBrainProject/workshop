@@ -1,4 +1,273 @@
-<section id="overview" class="hero">
-    <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
-    <img src="images/pattern_4.png" alt="Workshop Description" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
-</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>実際の画像でのフェードテスト</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .hero {
+            position: relative;
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+        }
+
+        .hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .hero-image.active {
+            opacity: 1;
+        }
+
+        .hero-image:first-child {
+            position: relative; /* 最初の画像でコンテナの高さを決める */
+        }
+
+        /* コントロールボタン */
+        .hero-controls {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 15;
+        }
+
+        .hero-controls.prev {
+            left: 20px;
+        }
+
+        .hero-controls.next {
+            right: 20px;
+        }
+
+        .control-button {
+            background: rgba(255,255,255,0.3);
+            border: 2px solid rgba(255,255,255,0.7);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .control-button:hover {
+            background: rgba(255,255,255,0.5);
+            border-color: white;
+            transform: scale(1.1);
+        }
+
+        /* インジケーター */
+        .indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 15;
+        }
+
+        .indicator {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .indicator.active {
+            background: white;
+            border-color: white;
+            transform: scale(1.2);
+        }
+
+        /* 自動再生ステータス */
+        .autoplay-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            background: rgba(0,0,0,0.6);
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 15;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .autoplay-status:hover {
+            background: rgba(0,0,0,0.8);
+        }
+
+        /* 説明セクション */
+        .info {
+            padding: 2rem;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .info h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .info p {
+            color: #666;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 768px) {
+            .control-button {
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .hero-controls.prev {
+                left: 10px;
+            }
+            
+            .hero-controls.next {
+                right: 10px;
+            }
+            
+            .indicators {
+                bottom: 20px;
+            }
+            
+            .indicator {
+                width: 14px;
+                height: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <!-- あなたの実際の画像パスを使用 -->
+        <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" class="hero-image active">
+        <img src="images/pattern_4.png" alt="Workshop Description" class="hero-image">
+        
+        <div class="hero-controls prev">
+            <button class="control-button" onclick="prevImage()">‹</button>
+        </div>
+        <div class="hero-controls next">
+            <button class="control-button" onclick="nextImage()">›</button>
+        </div>
+        
+        <div class="indicators">
+            <div class="indicator active" onclick="showImage(0)"></div>
+            <div class="indicator" onclick="showImage(1)"></div>
+        </div>
+        
+        <div class="autoplay-status" onclick="toggleAutoPlay()">
+            <span id="autoplay-text">自動再生 ON</span>
+        </div>
+    </section>
+
+    <div class="info">
+        <h2>実際の画像でのフェードテスト</h2>
+        <p>このテストファイルでは、あなたの実際の画像（pattern_1.png と pattern_4.png）を使用してフェード切り替え機能をテストしています。</p>
+        <p>動作確認ができたら、このコードを既存のサイトに適用できます。</p>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        let autoPlayInterval;
+        let isAutoPlaying = true;
+
+        const images = document.querySelectorAll('.hero-image');
+        const indicators = document.querySelectorAll('.indicator');
+        const autoplayText = document.getElementById('autoplay-text');
+
+        function showImage(index) {
+            // 全ての画像とインジケーターを非表示
+            images.forEach(img => img.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            // 指定された画像とインジケーターを表示
+            images[index].classList.add('active');
+            indicators[index].classList.add('active');
+            
+            currentImageIndex = index;
+        }
+
+        function nextImage() {
+            const nextIndex = (currentImageIndex + 1) % images.length;
+            showImage(nextIndex);
+        }
+
+        function prevImage() {
+            const prevIndex = (currentImageIndex - 1 + images.length) % images.length;
+            showImage(prevIndex);
+        }
+
+        function toggleAutoPlay() {
+            if (isAutoPlaying) {
+                clearInterval(autoPlayInterval);
+                isAutoPlaying = false;
+                autoplayText.textContent = '自動再生 OFF';
+            } else {
+                startAutoPlay();
+                isAutoPlaying = true;
+                autoplayText.textContent = '自動再生 ON';
+            }
+        }
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(nextImage, 4000); // 4秒ごとに切り替え
+        }
+
+        // 自動再生開始
+        startAutoPlay();
+
+        // マウスホバーで自動再生を一時停止
+        const heroSection = document.querySelector('.hero');
+        heroSection.addEventListener('mouseenter', () => {
+            if (isAutoPlaying) {
+                clearInterval(autoPlayInterval);
+            }
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            if (isAutoPlaying) {
+                startAutoPlay();
+            }
+        });
+
+        // キーボード操作サポート
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                prevImage();
+            } else if (e.key === 'ArrowRight') {
+                nextImage();
+            } else if (e.key === ' ') {
+                e.preventDefault();
+                toggleAutoPlay();
+            }
+        });
+    </script>
+</body>
+</html>
