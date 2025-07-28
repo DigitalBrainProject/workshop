@@ -1223,5 +1223,80 @@ a:hover {
             }
         };
     </script>
+    <script>
+// 画像フェード切り替え機能
+let currentImageIndex = 0;
+let autoPlayInterval;
+let isAutoPlaying = true;
+
+const images = document.querySelectorAll('.hero-image');
+const indicators = document.querySelectorAll('.indicator');
+const autoplayText = document.getElementById('autoplay-text');
+
+function showImage(index) {
+    images.forEach(img => img.classList.remove('active'));
+    indicators.forEach(ind => ind.classList.remove('active'));
+    
+    images[index].classList.add('active');
+    indicators[index].classList.add('active');
+    
+    currentImageIndex = index;
+}
+
+function nextImage() {
+    const nextIndex = (currentImageIndex + 1) % images.length;
+    showImage(nextIndex);
+}
+
+function prevImage() {
+    const prevIndex = (currentImageIndex - 1 + images.length) % images.length;
+    showImage(prevIndex);
+}
+
+function toggleAutoPlay() {
+    if (isAutoPlaying) {
+        clearInterval(autoPlayInterval);
+        isAutoPlaying = false;
+        autoplayText.textContent = '自動再生 OFF';
+    } else {
+        startAutoPlay();
+        isAutoPlaying = true;
+        autoplayText.textContent = '自動再生 ON';
+    }
+}
+
+function startAutoPlay() {
+    autoPlayInterval = setInterval(nextImage, 4000);
+}
+
+// 自動再生開始
+startAutoPlay();
+
+// マウスホバーで一時停止
+const heroSection = document.querySelector('.hero');
+heroSection.addEventListener('mouseenter', () => {
+    if (isAutoPlaying) {
+        clearInterval(autoPlayInterval);
+    }
+});
+
+heroSection.addEventListener('mouseleave', () => {
+    if (isAutoPlaying) {
+        startAutoPlay();
+    }
+});
+
+// キーボード操作
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+        prevImage();
+    } else if (e.key === 'ArrowRight') {
+        nextImage();
+    } else if (e.key === ' ') {
+        e.preventDefault();
+        toggleAutoPlay();
+    }
+});
+</script>
 </body>
 </html>
