@@ -945,6 +945,64 @@ a:hover {
 .hero-image:first-child {
     position: absolute !important;
 }
+        /* レスポンシブ対応：画面サイズに応じて高さを調整 */
+.hero {
+    position: relative !important;
+    width: 100% !important;
+    margin-top: 80px !important;
+    height: 70vh !important; /* ビューポートの70%に変更 */
+    min-height: 400px !important; /* 最小高さを設定 */
+    max-height: 800px !important; /* 最大高さを設定 */
+    overflow: hidden !important;
+}
+
+/* 画面サイズ別の調整 */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh !important; /* モバイルでは50% */
+        min-height: 300px !important;
+    }
+    
+    .autoplay-status {
+        font-size: 10px !important;
+        padding: 6px 12px !important;
+        top: 15px !important;
+        right: 15px !important;
+    }
+    
+    .control-button {
+        width: 25px !important;
+        height: 25px !important;
+        font-size: 16px !important;
+    }
+    
+    .hero-controls.prev {
+        left: 10px !important;
+    }
+    
+    .hero-controls.next {
+        right: 10px !important;
+    }
+    
+    .indicators {
+        bottom: 15px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .hero {
+        height: 60vh !important; /* 大画面では60% */
+        max-height: 700px !important;
+    }
+}
+
+/* 超小さい画面（スマホ横向きなど） */
+@media (max-height: 500px) {
+    .hero {
+        height: 80vh !important;
+        min-height: 250px !important;
+    }
+}
     </style>
 </head>
 <body>
