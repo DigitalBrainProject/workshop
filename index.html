@@ -731,8 +731,24 @@ a:hover {
 
     <main>
         <section id="overview" class="hero">
-            <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
-            <img src="images/pattern_4.png" alt="Workshop Description" style="width: 100%; height: auto; display: block; margin: 0; padding: 0;">
+    <img src="images/pattern_1.png" alt="2nd Digital Brain Workshop" class="hero-image active">
+    <img src="images/pattern_4.png" alt="Workshop Description" class="hero-image">
+    
+    <div class="hero-controls prev">
+        <button class="control-button" onclick="prevImage()">‹</button>
+    </div>
+    <div class="hero-controls next">
+        <button class="control-button" onclick="nextImage()">›</button>
+    </div>
+    
+    <div class="indicators">
+        <div class="indicator active" onclick="showImage(0)"></div>
+        <div class="indicator" onclick="showImage(1)"></div>
+    </div>
+    
+    <div class="autoplay-status" onclick="toggleAutoPlay()">
+        <span id="autoplay-text">自動再生 ON</span>
+    </div>
         </section>
 
         <section id="hero-description" class="container">
