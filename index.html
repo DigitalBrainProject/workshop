@@ -90,6 +90,22 @@ nav a:hover::after {
     width: 100%;
 }
 
+/* pattern_2.png 用のヒーローセクション */
+#hero-single {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-top: 80px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+}
+#hero-single img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+        
 /* ヒーローセクション - 改良されたスクロール効果 */
 .hero {
     position: relative;
@@ -113,13 +129,6 @@ nav a:hover::after {
     object-fit: cover;
     object-position: center;
     transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-@media (min-aspect-ratio: 2/1) {
-    .hero-image {
-        object-fit: contain !important;
-        height: 100% !important;
-    }
 }
 
 .hero-image-1 {
@@ -717,7 +726,6 @@ a:hover {
     }
 }
 /* === フェード切り替え機能（最終版・整理済み） === */
-/*
 /* ヒーローセクション */
 .hero {
     position: relative !important;
@@ -885,7 +893,6 @@ a:hover {
         height: 300px !important;
     }
 }
-*/
     </style>
 </head>
 <body>
@@ -908,7 +915,7 @@ a:hover {
 
     <main>
         <section id="overview" class="hero">
-    <img src="images/pattern_2.png" alt="2nd Digital Brain Workshop" class="hero-image active">
+    <img src="images/pattern_2.png" alt="2nd Digital Brain Workshop" class="#hero-single">
     <!-- 
     <img src="images/pattern_4.png" alt="Workshop Description" class="hero-image">
     <div class="hero-controls prev">
