@@ -877,6 +877,52 @@ a:hover {
         height: 300px !important;
     }
 }
+/* ハンバーガーメニュー用CSS */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+.menu-toggle .menu-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: #5f6368;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    /* モバイル時はトグルを表示し、navをドロップダウンに */
+    .menu-toggle { display: inline-block; }
+    header { position: fixed; } /* 既存通り固定 */
+    /* ドロップダウンメニューはヘッダー直下に重ねて出す */
+    nav#site-nav {
+        display: none;              /* 初期は閉じる */
+        position: absolute;
+        top: 100%;
+        left: 0; right: 0;
+        background: #fff;
+        padding: 1rem;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        z-index: 1001;             /* ヘッダーより前面 */
+    }
+    nav#site-nav.open { display: block; }
+    nav#site-nav ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    /* ハンバーガーを“X”に */
+    .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
     </style>
 </head>
 <body>
@@ -1377,6 +1423,18 @@ a:hover {
         function scrollToTop() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
+        // ハンバーガーメニュー開閉（追加）
+        document.addEventListener('DOMContentLoaded', function () {
+            const btn = document.querySelector('.menu-toggle');
+            const nav = document.getElementById('site-nav');
+            if (btn && nav) {
+                btn.addEventListener('click', () => {
+                    const expanded = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!expanded));
+                    nav.classList.toggle('open', !expanded);
+                });
+            }
+        });
 
         // Back to top ボタンの表示/非表示のみ
         window.onscroll = function() {
