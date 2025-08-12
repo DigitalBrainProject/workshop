@@ -929,7 +929,12 @@ a:hover {
     <header>
         <div class="container">
             <h1><a href="#overview" style="text-decoration: none; color: inherit;">Digital Brain Workshop</a></h1>
-            <nav>
+            <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
+            <nav id="site-nav">
                 <ul>
                     <li><a href="#overview">Overview</a></li>
                     <li><a href="#essential-info">Essential Info</a></li>
