@@ -172,6 +172,29 @@ nav a:hover::after {
     font-weight: 700;
 }
 
+.bus-change-notice {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
+    border: 2px solid var(--primary-red);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.2);
+}
+
+.bus-change-notice h3 {
+    color: var(--primary-red);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.bus-change-notice p {
+    color: #1a1a1a;
+    font-weight: 600;
+    margin: 0;
+}
+
 .event-info-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -918,10 +941,16 @@ a:hover {
         padding: 0;
         list-style: none;
     }
-    /* ハンバーガーを“X”に */
+    /* ハンバーガーを"X"に */
     .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) { opacity: 0; }
     .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* Strikethrough style */
+.strikethrough {
+    text-decoration: line-through;
+    color: #999;
 }
     </style>
 </head>
@@ -972,6 +1001,12 @@ a:hover {
         </section>
 
         <section id="hero-description" class="container">
+            <!-- Bus Change Notice -->
+            <div class="bus-change-notice">
+                <h3>🚌 Important Notice</h3>
+                <p>The bus meeting point has been changed from Hakata Station to the <strong>Fukuoka Airport Bus Terminal</strong>. Details will be notified via email, so please be aware.</p>
+            </div>
+
             <div class="event-info-cards">
                 <div class="event-info-card">
                     <h3>📅 Date</h3>
@@ -982,7 +1017,7 @@ a:hover {
                     <p><strong><a href="https://www.kyushu-u.ac.jp/ja/university/facility/kokonoe/" target="_blank" rel="noopener noreferrer">Kuju Joint Training Center</a></strong><br>
                     Oita, Japan<br>
                     <a href="https://www.kyushu-u.ac.jp/ja/university/facility/kokonoe/" target="_blank" rel="noopener noreferrer">🔗 Facility Details</a><br>
-                    <small>A shuttle bus departs from Hakata Station at 11:30 on the first day.</small>
+                    <small>A shuttle bus departs from Fukuoka Airport at 11:30 on the first day.</small>
                     </p>
                 </div>
                 <div class="event-info-card">
@@ -1015,7 +1050,7 @@ a:hover {
                     <h3>📍 Where</h3>
                     <p><strong>Kuju Joint Training Center</strong><br>
                     Kokonoe-machi, Oita, Japan<br>
-                    <small>Shuttle bus from Hakata Station</small></p>
+                    <small>Shuttle bus from Fukuoka Airport</small></p>
                 </div>
 
                 <div class="info-card">
@@ -1048,10 +1083,11 @@ a:hover {
                 <p>Applications are open for students and young researchers interested in brain science, mathematics, and computational neuroscience. Please fill out the form below to apply for the workshop.</p>
                 
             <div class="application-deadline">
-    <p><strong>📅 Application Deadline:</strong> September 17, 2025 17:00</p>
-</div>
+                <p class="strikethrough"><strong>📅 Application Deadline:</strong> September 17, 2025 17:00</p>
+            </div>
 
-<p><span style="background-color: #ffff00 !important; padding: 3px 6px !important; border-radius: 3px; display: inline-block;"><strong>We will notify you of the selection results by September 22. If you do not receive notification, please contact us at nakae [at] gmail.com.</strong></span></p>            </div>
+            <p><strong>We have already sent notification emails. If you registered but have not received any contact, please contact ken.nakae [at] gmail.com.</strong></p>
+            </div>
             
             <div class="form-container">
                 <iframe 
@@ -1155,7 +1191,7 @@ a:hover {
                     <h3>Day 1 - October 17 (Friday)</h3>
                     <div class="schedule-item">
                         <span class="time">11:30-14:00</span>
-                        <span class="activity">Departure from Hakata Station by Shuttle Bus → Arrival at Kuju</span>
+                        <span class="activity">Departure from Fukuoka Airport Domestic Terminal Bus Stop by Shuttle Bus → Arrival at Kuju</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time">14:00-14:10</span>
@@ -1317,7 +1353,7 @@ a:hover {
                     </div>
                     <div class="schedule-item">
                         <span class="time">15:00-17:30</span>
-                        <span class="activity">Departure → Arrival at Hakata Station</span>
+                        <span class="activity">Departure → Arrival at Fukuoka Airport</span>
                     </div>
                 </div>
             </div>
@@ -1335,10 +1371,10 @@ a:hover {
                     
                     <h3>🚌 Transportation</h3>
                     <p><strong>Shuttle Bus Service</strong><br>
-                    From: <strong>Hakata Station</strong> (博多駅)<br>
+                    From: <strong>Fukuoka Airport Domestic Terminal Bus Stop</strong><br>
                     Departure: <strong>11:30 on October 17</strong><br>
                     Return: <strong>15:00 on October 19</strong><br>
-                    → Arrival at Hakata: <strong>17:30</strong></p>
+                    → Arrival at Fukuoka Airport: <strong>17:30</strong></p>
                     
                     <h3>🏔️ About the Location</h3>
                     <p>Surrounded by beautiful mountain ridges and natural hot springs, the Kuju area offers the perfect environment for focused discussions and networking. The venue provides a peaceful setting away from city distractions, ideal for collaborative research planning.</p>
@@ -1413,7 +1449,7 @@ a:hover {
                 
                 <div class="sponsors">
                     <h3>Supported by</h3>
-                    <p><a href="https://www.brainscience-union.jp/" target="_blank">Union of Brain Science Association in Japan</a>, <a href="https://jnns.org/en/" target="_blank">Japanese Neural Network Society</a>, <a href="https://mfip.jp/en/" target="_blank">Mathematics for Industry Platform</a>, <a href="https://braidyn-bc.jp/" target="_blank">Biology of Behavior Change</a>, <a href="https://braidyn-bc.jp/" target="_blank">Grant-in-Aid for Transformative Research Areas</a>, <a href="https://braidyn-bc.jp/" target="_blank">MEXT</a></p>
+                    <p><a href="https://joint.imi.kyushu-u.ac.jp/en/" target="_blank">Joint Research Center for Advanced and Fundamental Mathematics-for-Industry</a>, <a href="https://www.brainscience-union.jp/" target="_blank">Union of Brain Science Association in Japan</a>, <a href="https://jnns.org/en/" target="_blank">Japanese Neural Network Society</a>, <a href="https://mfip.jp/en/" target="_blank">Mathematics for Industry Platform</a>, <a href="https://braidyn-bc.jp/" target="_blank">Biology of Behavior Change</a></p>
                 </div>
             </section>
             
