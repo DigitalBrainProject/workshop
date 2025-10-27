@@ -10,7 +10,6 @@
     
     <!-- SEO改善: キーワード追加 -->
     <meta name="keywords" content="digital brain, neuroscience workshop, computational neuroscience, brain science, Kyushu University, Japan workshop, KAIST, OIST, RIKEN">
-    
     <style>
 /* Digital Brain Workshop CSS - スクロール効果完全版 */
 
@@ -107,7 +106,7 @@ nav a:hover::after {
 .hero-images-container {
     position: relative;
     width: 100%;
-    height: 60vh; /* ビューポートの60%の高さ */
+    height: 100vh; /* ビューポートの高さ */
     overflow: hidden;
 }
 
@@ -264,835 +263,997 @@ nav a:hover::after {
 
 .apply-btn {
     display: inline-block;
-    background: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
+    background: linear-gradient(135deg, #ff4757 0%, #ff3838 100%);
     color: white;
     padding: 1.2rem 3rem;
+    font-size: 1rem;
+    font-weight: 700;
     text-decoration: none;
     border-radius: 0;
-    font-weight: 700;
-    font-size: 1.1rem;
-    box-shadow: 0 10px 30px rgba(255, 71, 87, 0.3);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.4);
     position: relative;
     overflow: hidden;
-    text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
 .apply-btn::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s;
 }
 
 .apply-btn:hover::before {
-    width: 300px;
-    height: 300px;
+    left: 100%;
 }
 
 .apply-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
-}
-
-/* スピーカーセクション */
-.speakers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.speaker-card {
-    background: white;
-    border-radius: 0;
-    padding: 2rem;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-}
-
-.speaker-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #ff4757 0%, #3742fa 50%, #ffa502 100%);
-}
-
-.speaker-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(255, 71, 87, 0.2);
-}
-
-.speaker-card h3 {
-    color: var(--primary-red);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.speaker-card .affiliation {
-    color: #5f6368;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.speaker-card a {
-    color: var(--primary-blue);
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.6);
+    background: linear-gradient(135deg, #ff3838 0%, #ff2828 100%);
+    color: white;
     text-decoration: none;
-    font-weight: 600;
-    transition: color 0.3s ease;
 }
 
-.speaker-card a:hover {
-    color: var(--primary-red);
-}
-
-/* セクション共通スタイル */
+/* セクション */
 section {
     padding: 4rem 0;
 }
 
-section h2 {
-    color: var(--primary-red);
-    font-size: 2.5rem;
+section:not(.hero) {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+h2 {
+    color: #1a1a1a;
+    font-size: 2rem;
     margin-bottom: 2rem;
-    text-align: center;
-    font-weight: 800;
+    font-weight: 600;
     position: relative;
     padding-bottom: 1rem;
 }
 
-section h2::after {
+h2::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
+    left: 0;
+    width: 60px;
+    height: 2px;
     background: linear-gradient(90deg, #ff4757, #3742fa);
 }
 
-/* Objectivesセクション */
-.objectives-content {
-    background: white;
-    padding: 3rem;
-    border-radius: 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    border-left: 4px solid var(--primary-red);
+/* Team & Mission セクションの行間調整 */
+.mission-content {
+    max-width: 900px;
+    margin: 0 auto;
 }
 
-.objectives-content h3 {
-    color: var(--primary-red);
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: 700;
+.mission-overview {
+    margin-bottom: 2.5rem;
 }
 
-.objectives-content p {
+.mission-overview p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #5f6368;
+}
+
+.mission-goals,
+.mission-format,
+.mission-activities {
+    margin-bottom: 2.5rem;
+}
+
+.mission-goals h3,
+.mission-format h3,
+.mission-activities h3 {
     color: #1a1a1a;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 0;
 }
 
-.objectives-content ul {
+.mission-goals p,
+.mission-format p {
+    line-height: 1.8;
+    margin-bottom: 0;
+    color: #1a1a1a;
+}
+
+.mission-activities ul {
     list-style: none;
     padding-left: 0;
+    margin: 0;
 }
 
-.objectives-content ul li {
-    padding-left: 2rem;
-    position: relative;
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-    line-height: 1.6;
+.mission-activities li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #e8eaed;
+    line-height: 1.7;
 }
 
-.objectives-content ul li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
+.mission-activities li:last-child {
+    border-bottom: none;
+}
+
+.mission-activities li strong {
     color: var(--primary-red);
-    font-weight: bold;
-    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-/* Registrationセクション */
-.registration-content {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
-    padding: 3rem;
-    border-radius: 0;
-    box-shadow: 0 8px 30px rgba(255, 71, 87, 0.2);
-    text-align: center;
-    border: 2px solid var(--primary-red);
-}
-
-.registration-content p {
-    color: #1a1a1a;
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2rem;
-}
-
-.registration-content strong {
-    color: var(--primary-red);
-    font-size: 1.2rem;
-}
-
-.form-container {
-    background: white;
-    padding: 3rem;
-    border-radius: 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* Essential Information */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.form-container iframe {
-    width: 100%;
-    min-height: 600px;
-    border: none;
+.info-card {
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 0;
+    border: 1px solid #e8eaed;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-.form-link {
-    display: inline-block;
-    margin-top: 1.5rem;
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 600;
+.info-card:hover {
+    border-color: var(--primary-red);
+    box-shadow: 0 4px 20px rgba(255, 71, 87, 0.15);
+}
+
+.info-card h3 {
+    color: var(--primary-red);
+    margin-bottom: 1rem;
     font-size: 1rem;
-    transition: color 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.form-link:hover {
+.fee {
+    font-size: 1.6rem;
+    font-weight: 700;
     color: var(--primary-red);
 }
 
-/* Programセクション */
-.program-container {
-    background: white;
-    padding: 3rem;
+.meal-list {
+    list-style: none;
+}
+
+.meal-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e8eaed;
+    color: #1a1a1a;
+}
+
+.meal-list li:last-child {
+    border-bottom: none;
+}
+
+/* 講演者カード */
+.speakers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.speaker-card {
+    background-color: white;
     border-radius: 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 1.8rem;
+    border: 1px solid #e8eaed;
+    transition: all 0.3s ease;
+    text-align: left;
+}
+
+.speaker-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.12);
+}
+
+.speaker-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.speaker-card .affiliation {
+    color: #5f6368;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+/* スケジュール */
+.schedule-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .day-schedule {
-    margin-bottom: 3rem;
+    background-color: white;
+    border-radius: 0;
     padding: 2rem;
-    background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-    border-left: 4px solid var(--primary-red);
+    border: 1px solid #e8eaed;
 }
 
 .day-schedule h3 {
-    color: var(--primary-red);
-    font-size: 1.5rem;
+    color: #1a1a1a;
     margin-bottom: 1.5rem;
-    font-weight: 700;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid #e8eaed;
+    padding-bottom: 0.5rem;
 }
 
 .schedule-item {
-    display: grid;
-    grid-template-columns: 150px 1fr;
-    gap: 1.5rem;
-    padding: 1rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-    transition: background 0.3s ease;
+    display: flex;
+    margin-bottom: 0.8rem;
+    padding: 1rem;
+    background-color: #fafbfc;
+    border-radius: 0;
+    border-left: 2px solid #e8eaed;
+    transition: all 0.3s ease;
 }
 
 .schedule-item:hover {
-    background: rgba(255, 71, 87, 0.05);
-    padding-left: 1rem;
-}
-
-.schedule-item .time {
-    font-weight: 600;
-    color: var(--primary-blue);
-    font-size: 0.95rem;
-}
-
-.schedule-item .activity {
-    color: #1a1a1a;
-    line-height: 1.6;
-}
-
-.schedule-item .activity strong {
-    color: var(--primary-red);
-    font-weight: 700;
-}
-
-.schedule-item.talk {
-    background: linear-gradient(90deg, rgba(55, 66, 250, 0.05) 0%, transparent 100%);
+    border-left-color: var(--primary-red);
+    background-color: #fff5f5;
 }
 
 .schedule-item.team-discussion {
-    background: linear-gradient(90deg, rgba(255, 165, 2, 0.05) 0%, transparent 100%);
+    border-left-color: var(--primary-red);
+    background-color: #fff5f5;
 }
 
 .schedule-item.poster {
-    background: linear-gradient(90deg, rgba(255, 71, 87, 0.05) 0%, transparent 100%);
+    border-left-color: var(--primary-blue);
+    background-color: #f5f7ff;
 }
 
 .schedule-item.presentation {
-    background: linear-gradient(90deg, rgba(255, 71, 87, 0.08) 0%, transparent 100%);
+    border-left-color: var(--primary-orange);
+    background-color: #fffaf5;
 }
 
-/* Accessセクション */
+.time {
+    font-weight: 700;
+    color: var(--primary-red);
+    min-width: 100px;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.activity {
+    color: #1a1a1a;
+    flex: 1;
+    margin-left: 1rem;
+}
+
+/* フッター・オーガナイザー */
+footer {
+    background-color: white;
+    color: #1a1a1a;
+    padding: 4rem 0 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+
+.organizers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.organizer-card {
+    background-color: white;
+    border-radius: 0;
+    padding: 1.8rem;
+    border: 1px solid #e8eaed;
+    transition: all 0.3s ease;
+}
+
+.organizer-card:hover {
+    border-color: var(--primary-red);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(255, 71, 87, 0.12);
+}
+
+.organizer-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.organizer-card .affiliation {
+    color: #5f6368;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.sponsors {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e8eaed;
+}
+
+.sponsors h3 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.sponsors p {
+    color: #5f6368;
+    margin: 0;
+    line-height: 1.8;
+}
+
+.footer-links {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e8eaed;
+}
+
+.footer-links p {
+    color: #5f6368;
+    margin: 0;
+}
+
+/* Access & Location */
 .location-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-    margin-top: 2rem;
-}
-
-.location-info {
-    background: white;
-    padding: 2rem;
-    border-radius: 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    align-items: start;
 }
 
 .location-info h3 {
-    color: var(--primary-red);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    font-size: 1.3rem;
-    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .location-info h3:first-child {
     margin-top: 0;
 }
 
-.location-info p {
-    color: #1a1a1a;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-}
-
-.location-info a {
-    color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.location-info a:hover {
-    color: var(--primary-red);
-}
-
 .map-container {
-    background: white;
-    padding: 2rem;
+    background-color: white;
+    padding: 1.5rem;
     border-radius: 0;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #e8eaed;
 }
 
 .map-container h3 {
-    color: var(--primary-red);
+    color: #1a1a1a;
+    margin-top: 0;
     margin-bottom: 1rem;
-    font-size: 1.3rem;
-    font-weight: 700;
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .transportation-note {
-    background: linear-gradient(135deg, #fff5f5 0%, #ffe6e6 100%);
-    padding: 1.5rem;
-    margin-top: 1.5rem;
+    background: linear-gradient(135deg, #fff5f5 0%, #f5f7ff 100%);
+    padding: 1rem;
     border-radius: 0;
-    border-left: 4px solid var(--primary-red);
+    margin-top: 1rem;
+    border-left: 3px solid var(--primary-red);
 }
 
 .transportation-note p {
-    color: #1a1a1a;
     margin: 0;
+    color: var(--primary-red);
     font-weight: 600;
 }
 
-/* Organizersセクション */
-.organizers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.organizer-card {
-    background: white;
-    padding: 2rem;
-    border-radius: 0;
-    text-align: center;
-    border: 1px solid rgba(0,0,0,0.08);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.organizer-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 35px rgba(255, 71, 87, 0.2);
-}
-
-.organizer-card h3 {
+/* リンク */
+a {
     color: var(--primary-red);
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.organizer-card .affiliation {
-    color: #5f6368;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.organizer-card a {
-    color: var(--primary-blue);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
+    transition: all 0.3s ease;
 }
 
-.organizer-card a:hover {
-    color: var(--primary-red);
-}
-
-.sponsors {
-    margin-top: 3rem;
-    padding-top: 3rem;
-    border-top: 2px solid rgba(0,0,0,0.08);
-    text-align: center;
-}
-
-.sponsors h3 {
-    color: var(--primary-red);
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-}
-
-.sponsors p {
-    color: #5f6368;
-    line-height: 1.8;
-    font-size: 1rem;
-}
-
-.sponsors a {
+a:hover {
     color: var(--primary-blue);
-    text-decoration: none;
-    font-weight: 600;
 }
 
-.sponsors a:hover {
-    color: var(--primary-red);
-}
-
-/* フッター */
-footer {
-    background: var(--dark-bg);
-    color: white;
-    padding: 3rem 0 1.5rem;
-    margin-top: 4rem;
-}
-
-.footer-links {
-    text-align: center;
-    margin-top: 2rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.footer-links p {
-    color: rgba(255,255,255,0.7);
-    font-size: 0.9rem;
-}
-
-/* Back to top ボタン */
+/* Back to top */
 #back-to-top {
-    display: none;
     position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff4757 0%, #3742fa 100%);
     color: white;
     border: none;
-    border-radius: 50%;
+    border-radius: 0;
     width: 50px;
     height: 50px;
-    font-size: 1.5rem;
+    font-size: 18px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.3);
-    transition: all 0.3s ease;
+    display: none;
     z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 #back-to-top:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 71, 87, 0.5);
 }
 
-/* レスポンシブ対応 */
+/* レスポンシブ */
 @media (max-width: 768px) {
-    .location-grid {
-        grid-template-columns: 1fr;
+    .hero-images-container {
+        height: 50vh; /* モバイルでは高さを調整 */
     }
     
-    .speakers-grid,
-    .organizers-grid {
+    .location-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .schedule-item {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+        flex-direction: column;
     }
     
-    section h2 {
-        font-size: 2rem;
+    .time {
+        min-width: auto;
+        margin-bottom: 0.3rem;
+    }
+    
+    .activity {
+        margin-left: 0;
     }
     
     nav ul {
+        flex-direction: column;
         gap: 1rem;
     }
     
-    .hero-images-container {
-        height: 60vh;
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+}
+/* === フェード切り替え機能（最終版・整理済み） === */
+/* ヒーローセクション */
+.hero {
+    position: relative !important;
+    width: 100% !important;
+    margin-top: 80px !important;
+    height: 60vh !important; /* ←500pxから60vhに変更 */
+    overflow: hidden !important;
+}
+
+/* 画像設定 */
+.hero-image {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    transition: opacity 1.5s ease-in-out !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+}
+
+.hero-image.active {
+    opacity: 1 !important;
+}
+
+.hero-image:first-child {
+    position: absolute !important;
+}
+
+/* 矢印コントロール */
+.hero-controls {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 15 !important;
+}
+
+.hero-controls.prev { 
+    left: 15px !important; 
+}
+
+.hero-controls.next { 
+    right: 15px !important; 
+}
+
+.control-button {
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+}
+
+.control-button:hover {
+    transform: scale(1.3) !important;
+    color: rgba(255,255,255,0.8) !important;
+}
+
+/* インジケーター */
+.indicators {
+    position: absolute !important;
+    bottom: 30px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    display: flex !important;
+    gap: 12px !important;
+    z-index: 15 !important;
+}
+
+.indicator {
+    width: 6px !important;
+    height: 6px !important;
+    border-radius: 50% !important;
+    background: rgba(255,255,255,0.5) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+}
+
+.indicator.active {
+    background: white !important;
+    border-color: white !important;
+    transform: scale(1.3) !important;
+}
+
+/* 自動再生ボタン */
+.autoplay-status {
+    position: absolute !important;
+    top: 20px !important;
+    right: 20px !important;
+    color: white !important;
+    background: rgba(255,255,255,0.15) !important;
+    padding: 8px 16px !important;
+    border-radius: 20px !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    z-index: 15 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.autoplay-status:hover {
+    background: rgba(255,255,255,0.25) !important;
+    border-color: rgba(255,255,255,0.4) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* レスポンシブ対応 */
+@media (min-width: 1200px) {
+    .hero {
+        height: 600px !important;
     }
 }
 
-/* ハンバーガーメニュー（モバイル用） */
+@media (max-width: 1199px) and (min-width: 768px) {
+    .hero {
+        height: 450px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero {
+        height: 350px !important;
+    }
+    
+    .autoplay-status {
+        font-size: 10px !important;
+        padding: 6px 12px !important;
+        top: 15px !important;
+        right: 15px !important;
+    }
+    
+    .control-button {
+        width: 25px !important;
+        height: 25px !important;
+        font-size: 16px !important;
+    }
+    
+    .hero-controls.prev {
+        left: 10px !important;
+    }
+    
+    .hero-controls.next {
+        right: 10px !important;
+    }
+    
+    .indicators {
+        bottom: 15px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 300px !important;
+    }
+}
+/* ハンバーガーメニュー用CSS */
 .menu-toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
+    padding: 0.5rem;
     cursor: pointer;
-    color: var(--primary-red);
+}
+.menu-toggle .menu-bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    margin: 5px 0;
+    background: #5f6368;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    
-    nav ul {
-        display: none;
-        flex-direction: column;
+    /* モバイル時はトグルを表示し、navをドロップダウンに */
+    .menu-toggle { display: inline-block; }
+    header { position: fixed; } /* 既存通り固定 */
+    /* ドロップダウンメニューはヘッダー直下に重ねて出す */
+    nav#site-nav {
+        display: none;              /* 初期は閉じる */
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
-        background: white;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        left: 0; right: 0;
+        background: #fff;
         padding: 1rem;
+        border-top: 1px solid rgba(0,0,0,0.1);
+        z-index: 1001;             /* ヘッダーより前面 */
     }
-    
-    nav ul.open {
+    nav#site-nav.open { display: block; }
+    nav#site-nav ul {
         display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
     }
+    /* ハンバーガーを"X"に */
+    .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(2) { opacity: 0; }
+    .menu-toggle[aria-expanded="true"] .menu-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 }
 
-/* 画像切り替えコントロール */
-.hero-controls {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    display: flex;
-    gap: 15px;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px 25px;
-    border-radius: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-.control-btn {
-    background: var(--primary-red);
-    color: white;
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.control-btn:hover {
-    background: var(--primary-blue);
-    transform: scale(1.1);
-}
-
-.indicators {
-    display: flex;
-    gap: 10px;
-}
-
-.indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(0,0,0,0.3);
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.indicator.active {
-    background: var(--primary-red);
-    width: 30px;
-    border-radius: 5px;
-}
-
-.autoplay-toggle {
-    background: white;
-    color: var(--primary-red);
-    border: 2px solid var(--primary-red);
-    padding: 8px 15px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 0.85rem;
-    transition: all 0.3s ease;
-}
-
-.autoplay-toggle:hover {
-    background: var(--primary-red);
-    color: white;
-}
-
-/* 画像アクティブ状態 */
-.hero-image {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.hero-image.active {
-    opacity: 1;
+/* Strikethrough style */
+.strikethrough {
+    text-decoration: line-through;
+    color: #999;
 }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>2nd Digital Brain Workshop</h1>
-            <button class="menu-toggle" aria-expanded="false" aria-label="メニューを開く">☰</button>
+            <h1><a href="#overview" style="text-decoration: none; color: inherit;">Digital Brain Workshop</a></h1>
+            <button class="menu-toggle" aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+                <span class="menu-bar"></span>
+            </button>
             <nav id="site-nav">
                 <ul>
-                    <li><a href="#hero-description">About</a></li>
-                    <li><a href="#objectives">Objectives</a></li>
-                    <li><a href="#speakers">Speakers</a></li>
+                    <li><a href="#overview">Overview</a></li>
+                    <li><a href="#essential-info">Essential Info</a></li>
                     <li><a href="#registration">Registration</a></li>
+                    <li><a href="#team-mission">Team & Mission</a></li>
+                    <li><a href="#speakers">Speakers</a></li>
                     <li><a href="#program">Program</a></li>
                     <li><a href="#access">Access</a></li>
-                    <li><a href="#organizers">Organizers</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-images-container">
-            <img src="images/pattern_2.png" alt="Digital Brain Workshop Pattern 1" class="hero-image hero-image-1 active">
-            <img src="images/pattern_1.png" alt="Digital Brain Workshop Pattern 2" class="hero-image hero-image-2">
-        </div>
-        
-        <div class="hero-controls">
-            <button class="control-btn" onclick="prevImage()" aria-label="前の画像">‹</button>
-            <div class="indicators">
-                <span class="indicator active" onclick="showImage(0)"></span>
-                <span class="indicator" onclick="showImage(1)"></span>
-            </div>
-            <button class="control-btn" onclick="nextImage()" aria-label="次の画像">›</button>
-            <button class="autoplay-toggle" onclick="toggleAutoPlay()">
-                <span id="autoplay-text">AUTO ON</span>
-            </button>
-        </div>
-    </section>
-
     <main>
+        <section id="overview" class="hero">
+    <img src="images/pattern_2.png" alt="2nd Digital Brain Workshop" class="hero-image active">
+    <!-- 
+    <img src="images/pattern_4.png" alt="Workshop Description" class="hero-image">
+    <div class="hero-controls prev">
+        <button class="control-button" onclick="prevImage()">‹</button>
+    </div>
+    <div class="hero-controls next">
+        <button class="control-button" onclick="nextImage()">›</button>
+    </div>
+    
+    <div class="indicators">
+        <div class="indicator active" onclick="showImage(0)"></div>
+        <div class="indicator" onclick="showImage(1)"></div>
+    </div>
+    
+    <div class="autoplay-status" onclick="toggleAutoPlay()">
+        <span id="autoplay-text">AUTO PLAY ON</span>
+    </div>
+    -->
+        </section>
+
         <section id="hero-description" class="container">
-            <div class="description-content">
-                <p class="elegant-description">
-                    Join a hand‑picked team of young Japanese and Korean researchers, debate face‑to‑face in English, and sprint toward a <strong>10‑minute joint proposal</strong> that could spark the next cross‑border collaboration.<br><br>
-                    Surrounded by hot‑spring steam and star‑filled skies, pack your laptop and meet us in Kyushu this October.
-                </p>
-
-                <div class="bus-change-notice">
-                    <h3>🚌 Important Notice</h3>
-                    <p>The bus meeting point has been changed from Hakata Station to the <strong>Fukuoka Airport Bus Terminal</strong>. Details will be notified via email, so please be aware.</p>
-                </div>
-
-                <div class="event-info-cards">
-                    <div class="event-info-card">
-                        <h3>📅 Date</h3>
-                        <p><strong>October 17-19, 2025</strong><br>3 days, 2 nights</p>
-                    </div>
-                    <div class="event-info-card">
-                        <h3>📍 Location</h3>
-                        <p><a href="https://www.kyushu-u.ac.jp/ja/university/facility/kokonoe/" target="_blank"><strong>Kuju Joint Training Center</strong></a><br>Oita, Japan</p>
-                    </div>
-                    <div class="event-info-card">
-                        <h3>💰 Fee</h3>
-                        <p><strong>¥2,000</strong><br>All meals, accommodation & shuttle bus included</p>
-                    </div>
-                </div>
+            <!-- Bus Change Notice -->
+            <div class="bus-change-notice">
+                <h3>🚌 Important Notice</h3>
+                <p>The bus meeting point has been changed from Hakata Station to the <strong>Fukuoka Airport Bus Terminal</strong>. Details will be notified via email, so please be aware.</p>
             </div>
 
+            <div class="event-info-cards">
+                <div class="event-info-card">
+                    <h3>📅 Date</h3>
+                    <p><strong>October 17-19, 2025</strong><br>3 days, 2 nights</p>
+                </div>
+                <div class="event-info-card">
+                    <h3>📍 Location</h3>
+                    <p><strong><a href="https://www.kyushu-u.ac.jp/ja/university/facility/kokonoe/" target="_blank" rel="noopener noreferrer">Kuju Joint Training Center</a></strong><br>
+                    Oita, Japan<br>
+                    <a href="https://www.kyushu-u.ac.jp/ja/university/facility/kokonoe/" target="_blank" rel="noopener noreferrer">🔗 Facility Details</a><br>
+                    <small>A shuttle bus departs from Fukuoka Airport at 11:30 on the first day.</small>
+                    </p>
+                </div>
+                <div class="event-info-card">
+                    <h3>💰 Fee</h3>
+                    <p><strong>¥2,000</strong><br>
+                    All meals, accommodation & shuttle bus included</p>
+                </div>
+            </div>
             <div class="cta-button-container">
                 <a href="#registration" class="apply-btn">Apply Now</a>
             </div>
         </section>
 
-        <section id="objectives" class="container">
-            <h2>Workshop Objectives</h2>
-            <div class="objectives-content">
-                <p>The goal of this workshop is for teams to collaborate and develop <strong>joint proposals for digital brain construction</strong>. Through invited speaker presentations, participants will engage in approximately <strong>5 hours of team discussions</strong> in total. Evening poster sessions will foster mutual understanding among participants.</p>
-                
-                <h3>Final Presentations</h3>
-                <p>On the final day, each team will present a <strong>12-minute + 3-minute Q&A</strong> collaborative research proposal related to digital brain research. Each team will designate one presenter and focus on a single, well-defined research theme.</p>
-                
-                <h3>Workshop Activities</h3>
-                <ul>
-                    <li><strong>Invited Talks:</strong> Research presentations by expert speakers</li>
-                    <li><strong>Team Discussions:</strong> ~5 hours of collaborative planning</li>
-                    <li><strong>Poster Sessions:</strong> Evening presentations by participants</li>
-                    <li><strong>Final Presentations:</strong> Joint research proposals (12min + 3min Q&A)</li>
-                </ul>
+        <section id="essential-info" class="container">
+            <h2>Essential Information</h2>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>👥 Participants</h3>
+                    <p><strong>Max 23 participants</strong><br>
+                    Students & young researchers</p>
+                </div>
 
-                <h3>Essential Information</h3>
-                <ul>
-                    <li><strong>👥 Participants:</strong> Max 23 participants — Students & young researchers</li>
-                    <li><strong>🌍 Language:</strong> English</li>
-                    <li><strong>📍 Where:</strong> Kuju Joint Training Center, Kokonoe-machi, Oita, Japan (Shuttle bus from Fukuoka Airport)</li>
-                    <li><strong>🏠 Accommodation:</strong> Female participants: kokonoe.student.kyushu-u.ac.jp / Male participants: Training center dormitory</li>
-                    <li><strong>🍽️ Meals (6 meals included):</strong> Day 1 dinner (Chicken/Kimchi hot-pot set), Day 2 breakfast/lunch/dinner (Dago-jiru set), Day 3 breakfast/lunch (Pork-shabu set)</li>
-                </ul>
-            </div>
-        </section>
+                <div class="info-card">
+                    <h3>🌍 Language</h3>
+                    <p><strong>English</strong></p>
+                </div>
 
-        <section id="speakers" class="container">
-            <h2>Invited Speakers</h2>
-            <div class="speakers-grid">
-                <div class="speaker-card">
-                    <h3>Staci Jakyong Kim</h3>
-                    <span class="affiliation">Assistant Professor, KAIST</span>
-                    <a href="https://bcs.kaist.ac.kr/sub020101/view/id/194" target="_blank">Faculty Profile →</a>
+                <div class="info-card">
+                    <h3>📍 Where</h3>
+                    <p><strong>Kuju Joint Training Center</strong><br>
+                    Kokonoe-machi, Oita, Japan<br>
+                    <small>Shuttle bus from Fukuoka Airport</small></p>
                 </div>
-                
-                <div class="speaker-card">
-                    <h3>Akihiro Funamizu</h3>
-                    <span class="affiliation">Lecturer, University of Tokyo</span>
-                    <a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/funamizu-lab/home_eng?authuser=0" target="_blank">Lab Website →</a>
+
+                <div class="info-card">
+                    <h3>🏠 Accommodation</h3>
+                    <p><strong>Female participants:</strong><br>
+                    <a href="http://kokonoe.student.kyushu-u.ac.jp" target="_blank">kokonoe.student.kyushu-u.ac.jp</a><br><br>
+                    <strong>Male participants:</strong><br>
+                    Training center dormitory</p>
                 </div>
-                
-                <div class="speaker-card">
-                    <h3>Takaaki Kaneko</h3>
-                    <span class="affiliation">Assistant Professor, National Institute for Physiological Sciences</span>
-                    <a href="https://researchmap.jp/takaakikaneko?lang=en" target="_blank">Research Profile →</a>
-                </div>
-                
-                <div class="speaker-card">
-                    <h3>Akiya Watakabe</h3>
-                    <span class="affiliation">Researcher, RIKEN CBS</span>
-                    <a href="https://researchmap.jp/karbey" target="_blank">Research Profile →</a>
-                </div>
-                
-                <div class="speaker-card">
-                    <h3>Dae Wook Kim</h3>
-                    <span class="affiliation">Assistant Professor, KAIST</span>
-                    <a href="https://bcs.kaist.ac.kr/sub020101/view/id/197" target="_blank">Faculty Profile →</a>
-                </div>
-                
-                <div class="speaker-card">
-                    <h3>Woochul Choi</h3>
-                    <span class="affiliation">Senior Researcher, Korea Brain Research Institute</span>
-                    <a href="https://scholar.google.com/citations?hl=en&user=Q-rBsuIAAAAJ" target="_blank">Google Scholar →</a>
-                </div>
-                
-                <div class="speaker-card">
-                    <h3>Taiki Yamada</h3>
-                    <span class="affiliation">Ph.D. Student, Graduate School of Information Science, University of Tokyo</span>
-                    <a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/yamada/" target="_blank">Research Profile →</a>
+
+                <div class="info-card">
+                    <h3>🍽️ Meals (6 meals included)</h3>
+                    <ul class="meal-list">
+                        <li><strong>Day 1 dinner</strong> — Chicken/Kimchi hot-pot set</li>
+                        <li><strong>Day 2 breakfast</strong></li>
+                        <li><strong>Day 2 lunch</strong></li>
+                        <li><strong>Day 2 dinner</strong> — Dago-jiru set</li>
+                        <li><strong>Day 3 breakfast</strong></li>
+                        <li><strong>Day 3 lunch</strong> — Pork-shabu set</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
         <section id="registration" class="container">
             <h2>Registration</h2>
-            <div class="registration-content">
+            
+            <div class="registration-info">
                 <h3>🚀 Ready to join us?</h3>
-                <p>Applications are open for students and young researchers interested in <strong>brain science, mathematics, and computational neuroscience</strong>. Please fill out the form below to apply for the workshop.</p>
+                <p>Applications are open for students and young researchers interested in brain science, mathematics, and computational neuroscience. Please fill out the form below to apply for the workshop.</p>
                 
-                <p><strong>📅 Application Deadline: September 17, 2025 17:00</strong></p>
-                
-                <p>We have already sent notification emails. If you registered but have not received any contact, please contact <strong>ken.nakae [at] gmail.com</strong>.</p>
-                
-                <div class="form-container">
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScImy8s9SEsUoph13AOa3I6GvO0yuGWmLbJWE9PjMOoTf_rGw/viewform?embedded=true" width="640" height="1200" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
-                    
-                    <p class="form-link">💡 Having trouble with the form?<br>
-                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScImy8s9SEsUoph13AOa3I6GvO0yuGWmLbJWE9PjMOoTf_rGw/viewform" target="_blank">Open in new tab →</a></p>
+            <div class="application-deadline">
+                <p class="strikethrough"><strong>📅 Application Deadline:</strong> September 17, 2025 17:00</p>
+            </div>
+
+            <p><span style="background-color: #ffff00 !important; padding: 3px 6px !important; border-radius: 3px; display: inline-block;"><strong>We have already sent notification emails. If you registered but have not received any contact, please contact ken.nakae [at] gmail.com.</strong></span></p>
+            </div>
+            
+            <div class="form-container">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLScImy8s9SEsUoph13AOa3I6GvO0yuGWmLbJWE9PjMOoTf_rGw/viewform?embedded=true" 
+                    width="100%" 
+                    height="800" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0">
+                    Loading…
+                </iframe>
+            </div>
+            
+            <div class="registration-note">
+                <p><strong>💡 Having trouble with the form?</strong><br>
+                You can also access it directly: <a href="https://docs.google.com/forms/d/e/1FAIpQLScImy8s9SEsUoph13AOa3I6GvO0yuGWmLbJWE9PjMOoTf_rGw/viewform" target="_blank">Open in new tab →</a></p>
+            </div>
+        </section>
+
+        <section id="team-mission" class="container">
+            <h2>Team & Mission</h2>
+            <div class="mission-content">
+                <div class="mission-overview">
+                    <p>
+                        Join a hand‑picked team of young Japanese and Korean researchers, debate face‑to‑face in English, and sprint toward a 10‑minute joint proposal that could spark the next cross‑border collaboration.<br>
+                        Surrounded by hot‑spring steam and star‑filled skies, pack your laptop and meet us in Kyushu this October.<br>
+                        <br>
+                        <strong>Teams:</strong> 4-6 participants per team, organized by organizers based on research interests and motivation from registration.
+                    </p>
                 </div>
+
+                <div class="mission-goals">
+                    <h3>Workshop Objectives</h3>
+                    <p>The goal of this workshop is for teams to collaborate and develop joint proposals for digital brain construction. Through invited speaker presentations, participants will engage in approximately <strong>5 hours of team discussions in total</strong>. Evening poster sessions will foster mutual understanding among participants.</p>
+                </div>
+
+                <div class="mission-format">
+                    <h3>Final Presentations</h3>
+                    <p>On the final day, each team will present a <strong>12-minute + 3-minute Q&A</strong> collaborative research proposal related to digital brain research. Each team will designate one presenter and focus on a single, well-defined research theme.</p>
+                </div>
+
+                <div class="mission-activities">
+                    <h3>Workshop Activities</h3>
+                    <ul>
+                        <li><strong>Invited Talks:</strong> Research presentations by expert speakers</li>
+                        <li><strong>Team Discussions:</strong> ~5 hours of collaborative planning</li>
+                        <li><strong>Poster Sessions:</strong> Evening presentations by participants</li>
+                        <li><strong>Final Presentations:</strong> Joint research proposals (12min + 3min Q&A)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="speakers" class="container">
+            <h2>Invited Speakers</h2>
+            
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <h3>Staci Jakyong Kim</h3>
+                    <p class="affiliation">Assistant Professor, KAIST</p>
+                    <a href="https://bcs.kaist.ac.kr/sub020101/view/id/194" target="_blank">Faculty Profile →</a>
+                </div>
+                
+                <div class="speaker-card">
+                    <h3>Akihiro Funamizu</h3>
+                    <p class="affiliation">Lecturer, University of Tokyo</p>
+                    <a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/funamizu-lab/home_eng?authuser=0" target="_blank">Lab Website →</a>
+                </div>
+                
+                <div class="speaker-card">
+                    <h3>Takaaki Kaneko</h3>
+                    <p class="affiliation">Assistant Professor, National Institute for Physiological Sciences</p>
+                    <a href="https://researchmap.jp/takaakikaneko?lang=en" target="_blank">Research Profile →</a>
+                </div>
+                
+                <div class="speaker-card">
+                    <h3>Akiya Watakabe</h3>
+                    <p class="affiliation">Researcher, RIKEN CBS</p>
+                    <a href="https://researchmap.jp/karbey" target="_blank">Research Profile →</a>
+                </div>
+                
+                <div class="speaker-card">
+                    <h3>Dae Wook Kim</h3>
+                    <p class="affiliation">Assistant Professor, KAIST</p>
+                    <a href="https://bcs.kaist.ac.kr/sub020101/view/id/197" target="_blank">Faculty Profile →</a>
+                </div>
+                
+                <div class="speaker-card">
+                    <h3>Woochul Choi</h3>
+                    <p class="affiliation">Senior Researcher, Korea Brain Research Institute</p>
+                    <a href="https://scholar.google.com/citations?hl=en&user=Q-rBsuIAAAAJ" target="_blank">Google Scholar →</a>
+                </div>
+      
+                <div class="speaker-card">
+                <h3>Taiki Yamada</h3>
+                    <p class="affiliation">Ph.D. Student, Graduate School of Information Science, University of Tokyo</p>
+                    <a href="https://sites.google.com/g.ecc.u-tokyo.ac.jp/yamada/" target="_blank">Research Profile →</a>
+                </div>
+                
             </div>
         </section>
 
         <section id="program" class="container">
             <h2>Program</h2>
-            <div class="program-container">
+            
+            <div class="schedule-container">
                 <div class="day-schedule">
                     <h3>Day 1 - October 17 (Friday)</h3>
                     <div class="schedule-item">
-                        <span class="time">11:30-14:30</span>
-                        <span class="activity">Departure from Fukuoka Airport → Arrival at Training Center</span>
+                        <span class="time">11:30-14:00</span>
+                        <span class="activity">Departure from Fukuoka Airport Domestic Terminal Bus Stop by Shuttle Bus → Arrival at Kuju</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">14:30-14:40</span>
-                        <span class="activity">Opening Remarks</span>
-                    </div>
-                    <div class="schedule-item talk">
-                        <span class="time">14:40-15:40</span>
-                        <span class="activity"><strong>Staci Jakyong Kim:</strong> "Decoding the Molecular Mechanisms of Sleep Dysregulation in the Aging Brain."</span>
+                        <span class="time">14:00-14:10</span>
+                        <span class="activity"><strong>Ken Nakae</strong> (University of Fukui): Opening Remarks</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">15:40-16:00</span>
+                        <span class="time">14:10-14:30</span>
+                        <span class="activity"><strong>Kenji Doya</strong> (OIST): Introduction of Brain/MINDS 2.0</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">14:30-15:05</span>
+                        <span class="activity">
+                            <strong>Staci Jakyong Kim</strong>, Assistant Professor, KAIST<br>
+                            "Decoding the Molecular Mechanisms of Sleep Dysregulation in the Aging Brain."
+                        </span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">15:05-15:15</span>
                         <span class="activity">Break</span>
                     </div>
-                    <div class="schedule-item talk">
-                        <span class="time">16:00-17:00</span>
-                        <span class="activity"><strong>Taiki Yamada:</strong> "Unsupervised Learning of Topological Dynamical Systems in Canonical Neural Networks"</span>
+                    <div class="schedule-item">
+                        <span class="time">15:15-15:50</span>
+                        <span class="activity">
+                            <strong>Taiki Yamada</strong>, Ph.D. Student, Graduate School of Information Science, University of Tokyo<br>
+                            "Unsupervised Learning of Topological Dynamical Systems in Canonical Neural Networks"
+                        </span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">17:00-17:20</span>
+                        <span class="time">15:50-16:25</span>
+                        <span class="activity">
+                            <strong>Akihiro Funamizu</strong>, Lecturer, Tokyo University<br>
+                            "Artificial Intelligence (AI) for understanding decision making of brain"
+                        </span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">16:25-16:30</span>
                         <span class="activity">Break</span>
                     </div>
-                    <div class="schedule-item talk">
-                        <span class="time">17:20-18:20</span>
-                        <span class="activity"><strong>Woochul Choi:</strong> "Artificial Intelligence (AI) for understanding decision making of brain"</span>
+                    <div class="schedule-item team-discussion">
+                        <span class="time">16:30-17:30</span>
+                        <span class="activity"><strong>Team Discussion 1:</strong> Sharing motivation and Self-Introduction in Team</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">18:30-19:30</span>
-                        <span class="activity">Dinner (Chicken/Kimchi hot-pot set)</span>
+                        <span class="time">17:30-18:30</span>
+                        <span class="activity">Dinner</span>
                     </div>
                     <div class="schedule-item poster">
-                        <span class="time">19:30-21:30</span>
-                        <span class="activity"><strong>Poster Session 1</strong> with Drinking Discussion</span>
+                        <span class="time">19:00-21:00</span>
+                        <span class="activity"><strong>Poster Session</strong> with Drinking Discussion</span>
                     </div>
                 </div>
 
@@ -1103,52 +1264,56 @@ footer {
                         <span class="activity">Breakfast</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">8:30-8:50</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item talk">
-                        <span class="time">8:50-9:50</span>
-                        <span class="activity"><strong>Dae Wook Kim:</strong> "Understanding the brain as a mentalizing machine"</span>
-                    </div>
-                    <div class="schedule-item">
-                        <span class="time">9:50-10:10</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item talk">
-                        <span class="time">10:10-11:10</span>
-                        <span class="activity"><strong>Akihiro Funamizu:</strong> "Computational Insights into Primate Decision-Making: Gaze Dynamics and Changes-of-Mind in Virtual Navigation"</span>
+                        <span class="time">9:30–10:05</span>
+                        <span class="activity">
+                            <strong>Takaaki Kaneko</strong>, Assistant Professor, National Institute for Physiological Science<br>
+                            "Understanding the brain as a mentalizing machine"
+                        </span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">11:10-11:30</span>
-                        <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item team-discussion">
-                        <span class="time">11:30-12:30</span>
-                        <span class="activity"><strong>Team Discussion 1:</strong> Forming Groups and Deciding Research Themes</span>
+                        <span class="time">10:05–10:40</span>
+                        <span class="activity">
+                            <strong>Woochul Choi</strong>, Senior Researcher, Korea Brain Research Institute<br>
+                            "Computational Insights into Primate Decision-Making: Gaze Dynamics and Changes-of-Mind in Virtual Navigation"
+                        </span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">12:30-13:30</span>
+                        <span class="time">10:40–10:50</span>
+                        <span class="activity">Break</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">10:50–11:25</span>
+                        <span class="activity">
+                            <strong>Akiya Watakabe</strong>, Researcher, RIKEN CBS<br>
+                            "Mesoscopic connectional mapping of the marmoset brain"
+                        </span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">11:25–12:00</span>
+                        <span class="activity">
+                            <strong>Dae Wook Kim</strong>, Assistant Professor, KAIST<br>
+                            "Decoding Noisy Time-Series: Filtering, Topological Data Analysis, Neural Networks."
+                        </span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="time">12:00–13:00</span>
                         <span class="activity">Lunch</span>
                     </div>
-                    <div class="schedule-item talk">
-                        <span class="time">13:30-14:30</span>
-                        <span class="activity"><strong>Akiya Watakabe:</strong> "Mesoscopic connectional mapping of the marmoset brain"</span>
+                    <div class="schedule-item team-discussion">
+                        <span class="time">13:00-15:20</span>
+                        <span class="activity"><strong>Team Discussion 2:</strong> Main Discussion 1</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">14:30-14:50</span>
+                        <span class="time">15:20-15:30</span>
                         <span class="activity">Break</span>
-                    </div>
-                    <div class="schedule-item talk">
-                        <span class="time">14:50-15:50</span>
-                        <span class="activity"><strong>Takaaki Kaneko:</strong> "Decoding Noisy Time-Series: Filtering, Topological Data Analysis, Neural Networks."</span>
                     </div>
                     <div class="schedule-item">
-                        <span class="time">15:50-16:10</span>
-                        <span class="activity">Break</span>
+                        <span class="time">15:30-15:50</span>
+                        <span class="activity">Introduction of Korean Society for Computational Neuroscience— Se-Bum Paik</span>
                     </div>
                     <div class="schedule-item team-discussion">
-                        <span class="time">16:10-17:30</span>
-                        <span class="activity"><strong>Team Discussion 2:</strong> Detailed Brainstorming</span>
+                        <span class="time">15:50-17:30</span>
+                        <span class="activity"><strong>Team Discussion 3:</strong> Main Discussion 2</span>
                     </div>
                     <div class="schedule-item">
                         <span class="time">17:30-18:30</span>
@@ -1373,7 +1538,7 @@ function toggleAutoPlay() {
 }
 
 function startAutoPlay() {
-    autoPlayInterval = setInterval(nextImage, 6000);
+    autoPlayInterval = setInterval(nextImage, 4000);
 }
 
 // 自動再生開始
